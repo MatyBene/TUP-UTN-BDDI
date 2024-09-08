@@ -24,23 +24,24 @@ create table Empleados(
 );
 
 INSERT INTO Departamentos (id_depto, nombre_depto, ciudad, nombre_jefe_depto) VALUES 
-(1, 'Recursos Humanos', 'Buenos Aires', 'Martina Gómez'),
-(2, 'IT', 'Córdoba', 'Lucas Martínez'),
-(3, 'Ventas', 'Rosario', 'Sofía Fernández'),
-(4, 'Finanzas', 'Mendoza', 'Carlos Pérez'),
-(5, 'Marketing', 'La Plata', 'Ana Torres');
+(1000, 'Ventas', 'Ciudad Real', 'Carlos Fernandez'),
+(2000, 'Investigación', 'Madrid', 'Ana Gomez'),
+(3000, 'Mantenimiento', 'Barcelona', 'Luis Martinez'),
+(4000, 'Recursos Humanos', 'Valencia', 'Maria Lopez'),
+(5000, 'Marketing', 'Sevilla', 'Elena Sanchez');
 
-INSERT INTO Empleados (id_emp, nombre, sex_emp, fec_nac, fec_incorporacion, sal_emp, comision_emp, cargo_emp, id_depto) values
-(1, 'Javier Rodríguez', 'M', '1985-03-12', '2010-06-15', 55000, 5000, 'Analista', 1),
-(2, 'Laura Pérez', 'F', '1990-07-21', '2015-09-01', 48000, 3000, 'Asistente', 2),
-(3, 'Carlos Gutiérrez', 'M', '1979-12-05', '2005-02-12', 60000, 8000, 'Jefe', 3),
-(4, 'María López', 'F', '1992-04-17', '2018-03-10', 52000, 4000, 'Coordinadora', 4),
-(5, 'Ricardo Álvarez', 'M', '1987-11-25', '2011-05-20', 47000, 2000, 'Ejecutivo', 5),
-(6, 'Clara Medina', 'F', '1995-01-30', '2019-07-01', 45000, 2500, 'Administrativa', 1),
-(7, 'Pablo Gómez', 'M', '1983-09-11', '2008-01-15', 61000, 6000, 'Analista', 2),
-(8, 'Natalia Sánchez', 'F', '1991-02-14', '2014-10-05', 53000, 3500, 'Supervisora', 3),
-(9, 'Joaquín Domínguez', 'M', '1988-06-22', '2016-11-08', 49000, 1500, 'Contador', 4),
-(10, 'Santiago Herrera', 'M', '1993-08-30', '2020-02-03', 46000, 1000, 'Asistente', 5);
+INSERT INTO Empleados (id_emp, nombre, sex_emp, fec_nac, fec_incorporacion, sal_emp, comision_emp, cargo_emp, id_depto) VALUES 
+(1, 'Juan Perez', 'M', '1985-07-15', '2010-03-10', 2500.00, 300.00, 'Vendedor', 1000),
+(2, 'Javier Martinez', 'M', '1990-12-05', '2015-06-20', 2200.00, 500.00, 'Secretaria', 2000),
+(3, 'Josefina Lopez', 'F', '1978-03-22', '2008-09-15', 2700.00, 0.00, 'Jefe', 3000),
+(4, 'Julia Sanchez', 'F', '1983-08-10', '2012-07-18', 1800.00, 200.00, 'Vendedor', 1000),
+(5, 'Miguel Torres', 'M', '1975-02-13', '2000-11-30', 3000.00, 1000.00, 'Jefe', 4000),
+(6, 'Lucia Fernandez', 'F', '1992-04-25', '2016-01-10', 2100.00, 0.00, 'Mantenimiento', 3000),
+(7, 'Jorge Ramirez', 'M', '1988-10-15', '2011-05-22', 1900.00, 250.00, 'Secretaria', 1000),
+(8, 'Antonio Garcia', 'M', '1985-09-10', '2013-03-15', 3200.00, 0.00, 'Investigador', 2000),
+(9, 'Laura Campos', 'F', '1990-06-30', '2014-02-25', 2750.00, 700.00, 'Vendedor', 1000),
+(10, 'Manuel Alvarez', 'M', '1979-11-20', '2007-12-01', 3500.00, 1500.00, 'Jefe', 5000);
+
 
 -- Ejercicio 1
 select 
@@ -79,7 +80,7 @@ select
 from 
 	Empleados
 where
-	cargo_emp like 'Asistente';
+	cargo_emp like 'Secretaria';
     
 -- Ejercicio 7
 select 
@@ -87,13 +88,64 @@ select
 from 
 	Empleados
 where
-	cargo_emp like 'Analista'
+	cargo_emp like 'Vendedor'
 order by
 	nombre desc;
 
 -- Ejercicio 8
+select
+	nombre,
+    cargo_emp
+from
+	Empleados
+order by
+	sal_emp;
 
+-- Ejercicio 9
 
+-- Ejercicio 10
+
+-- Ejercicio 11
+
+-- Ejercicio 12
+
+-- Ejercicio 13
+select 
+	nombre
+from 
+	Empleados
+where
+	nombre like 'L%';
+    
+-- Ejercicio 14
+
+-- Ejercicio 15
+
+-- Ejercicio 16
+
+-- Ejercicio 17
+
+-- Ejercicio 18
+
+-- Ejercicio 19
+select
+	nombre_depto
+from
+	Departamentos
+where
+	nombre_depto in ('Ventas', 'Investigación', 'Mantenimiento');
+
+-- Ejercicio 20
+select
+	nombre_depto
+from
+	Departamentos
+where
+	nombre_depto not in ('Ventas', 'Investigación', 'Mantenimiento');
+    
+-- Ejercicio 21
+
+-- Ejercicio 22
 
 
 
