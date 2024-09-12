@@ -145,14 +145,50 @@ where
 	nombre like 'L%';
     
 -- Ejercicio 14
+select
+	sal_emp,
+    comision_emp,
+    (sal_emp + comision_emp) as 'salario total',
+    nombre
+from
+	Empleados
+where
+	comision_emp > 1000;
 
 -- Ejercicio 15
+select
+	sal_emp,
+    comision_emp,
+    (sal_emp + comision_emp) as 'salario total',
+    nombre
+from
+	Empleados
+where
+	comision_emp = 0;
 
 -- Ejercicio 16
-
+select
+	*
+from
+	Empleados
+where
+	sal_emp < comision_emp;
+    
 -- Ejercicio 17
+select
+	*
+from
+	Empleados
+where
+	comision_emp <= (sal_emp * 0.3);
 
 -- Ejercicio 18
+select 
+	*
+from
+	Empleados
+where
+	nombre not like '%MA%'; 
 
 -- Ejercicio 19
 select
@@ -171,8 +207,22 @@ where
 	nombre_depto not in ('Ventas', 'Investigación', 'Mantenimiento');
     
 -- Ejercicio 21
+select
+	sal_emp
+from
+	Empleados
+order by
+	sal_emp desc
+limit 1;
 
 -- Ejercicio 22
+select
+	nombre
+from 
+	Empleados
+order by
+	nombre desc
+limit 1;
 
 
 
