@@ -102,12 +102,39 @@ order by
 	sal_emp;
 
 -- Ejercicio 9
+select
+	nombre_jefe_depto
+from
+	Departamentos
+where
+	ciudad like 'Ciudad Real';
 
 -- Ejercicio 10
+select
+	nombre as Nombre,
+    cargo_emp as Cargo
+from
+	Empleados;
 
 -- Ejercicio 11
+select
+	sal_emp,
+    comision_emp
+from
+	Empleados
+where
+	id_depto = 2000
+order by 
+	comision_emp;
 
 -- Ejercicio 12
+select
+	nombre,
+    (sal_emp + comision_emp + 500) as 'total a pagar'
+from
+	Empleados
+order by
+	nombre;
 
 -- Ejercicio 13
 select 
