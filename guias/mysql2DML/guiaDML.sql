@@ -1,6 +1,8 @@
 -- Guia DML
 
-use c9_benedetti_matias;
+create database guia_DML;
+
+use guia_DML;
 
 create table Departamentos(
 	codigo int(10) primary key,
@@ -384,18 +386,103 @@ where
 	e.nif = '38382980M';
 
 -- 6
-
+select
+	d.nombre
+from
+	Departamentos as d inner join Empleados as e
+    on d.codigo = e.codigo_departamento
+where
+	e.nombre like 'Pepe' and e.apellido1 = 'Ruiz' and e.apellido2 = 'Santana';
 
 -- 7
+select 
+	e.*
+from
+	Empleados as e inner join Departamentos as d
+    on e.codigo_departamento = d.codigo
+where
+	d.nombre like 'I+D'
+order by
+	e.apellido1, e.apellido2, e.nombre;
+
 -- 8
+select 
+	e.*
+from
+	Empleados as e inner join Departamentos as d
+    on e.codigo_departamento = d.codigo
+where
+	d.nombre in ('Sistemas', 'Contabilidad', 'I+D')
+order by
+	e.apellido1, e.apellido2, e.nombre;	
+
 -- 9
+select
+	e.nombre
+from
+	Empleados as e inner join Departamentos as d
+    on e.codigo_departamento = d.codigo
+where
+	d.presupuesto not between 100000 and 200000;
+
 -- 10
+select distinct
+	d.nombre
+from
+	Departamentos as d inner join Empleados as e
+    on d.codigo = e.codigo_departamento
+where
+	e.apellido2 is null;
 
 -- Consultas multitabla (composicion externa)   
 -- 1
+select
+	e.*, d.*
+from
+	Empleados as e left join Departamentos as d
+    on e.codigo_departamento = d.codigo;
+    
 -- 2
+select
+	e.*
+from
+	Empleados as e left join Departamentos as d
+    on e.codigo_departamento = d.codigo
+where
+	d.codigo is null;
+    
 -- 3
+select
+	d.*
+from
+	Departamentos as d left join Empleados as e
+    on d.codigo = e.codigo_departamento
+where
+	e.codigo_departamento is null;
+
 -- 4
+select
+	e.*,
+    d.*,
+    d.nombre as nombre_dep
+from
+	Empleados as e 
+left join
+	Departamentos as d
+	on e.codigo_departamento = d.codigo
+union
+select
+	e.*,
+    d.*,
+    d.nombre as nombre_dep
+from
+	Empleados as e
+right join
+	Departamentos as d
+    on e.codigo_departamento = d.codigo
+order by
+	nombre_dep;
+    
 -- 5    
     
     
